@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>NPC Form Page</title>
+</head>
+<body>
+	<h1>NPC Form Page</h1>
+	<nobr>
+			<a th:href="@{/}">Back to Main Landing Page</a>
+			<br></br>
+			<a th:href="@{/api/v1/pcForm}">Go to PC Form Page</a>
+			<br></br>
+			<a th:href="@{/api/v1/encounterOccupants}">Go to Encounter Occupants Page</a>
+	</nobr>
+	<br></br>
+	<form action="addNpc">
+		<label for="id">Id:</label><br>
+		<input type="text" id="id" name="id"><br>
+		
+		<label for="name">Name:</label><br>
+		<input type="text" id="name" name="name"><br>
+		
+		<label for="dc">DC:</label><br>
+		<input type="text" id="dc" name="dc"><br>
+		
+		<label for="enemy">Enemy?</label><br>
+		<input type="text" id="enemy" name="enemy"><br>
+		
+		<label for="ally">Ally?</label><br>
+		<input type="text" id="ally" name="ally"><br>	
+		
+		<label for="perceptionMod">Perception Modifier:</label><br>
+		<input type="text" id="perceptionMod" name="perceptionMod"><br>
+		
+		<label for="insightMod">Insight Modifier:</label><br>
+		<input type="text" id="insightMod" name="insightMod"><br>
+		
+		<label for="ac">AC:</label><br>
+		<input type="text" id="ac" name="ac"><br>
+				
+		<label for="initiative">Initiative:</label><br>
+		<input type="text" id="initiative" name="initiative"><br>	
+			
+		<input type="submit"><br>
+	</form>
+</body>
+</html>

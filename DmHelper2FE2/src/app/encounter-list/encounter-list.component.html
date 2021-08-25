@@ -1,0 +1,64 @@
+<h2>Encounter List</h2>
+<table class = "table table-striped">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Start</th>
+			<th>Details</th>
+			<th>Actions</th>
+			<th>Delete</th>
+
+			<th></th>
+			<th></th>
+		
+		
+		</tr>
+	</thead>
+	<tbody>
+		 	<tr *ngFor = "let encounter of encounters">
+			<td>{{encounter.id}}</td>
+			<td>{{encounter.name}}</td>
+		<!--	<td>{{encounter.combatantIds.length}}</td>
+			<td>{{encounter.actions.length}}</td>
+			 <td>{{getStats(character.id)}}</td>	 -->
+			<!-- <td>
+				<button (click) = "startEncounter(encounter.id)" class=
+					"btn btn-primary" id="startEncounter">Start Encounter
+				</button>
+			</td>-->
+			<td>
+				<button (click)="startEncounter(encounter.id)" class=
+					"btn btn-primary" id="startEncounter">Start Encounter
+				</button>
+			</td> 
+			<td>
+				<button (click) = "viewEncounterDetails(encounter.id)" class=
+					"btn btn-primary" id="viewLog">Details
+				</button>
+			</td> 
+			<td>
+				<button (click) = "viewActionLog(encounter.id)" class=
+					"btn btn-primary" id="viewLog">Action Log
+				</button>
+			</td> 
+			<td>
+				<button (click) = "deleteEncounter(encounter.id)" class=
+					"btn btn-primary" id="deleteBtn">Delete
+				</button>
+			</td>
+		</tr> 
+		<tr>
+			<td>
+				<button (click) = "createEncounter()" 
+					class="btn btn-primary" id="createEncounter">Create Encounter
+				</button>
+			</td>
+		</tr> 
+<!-- 		
+		<tr *ngFor = "let stat of stats">
+			<td>{{stat.currentHp}}</td>	
+		</tr> -->
+	</tbody>
+	
+</table>

@@ -1,0 +1,79 @@
+<h2>Encounter: {{encounter?.name}}</h2>
+<h4>Current Combatants</h4>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Combatant</th>
+			<th>Health</th>
+			<th>Initiative</th>
+			<th>Edit</th>
+			<th>Remove</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let ec of encounterChars">
+			<td>{{(ec.name)}}</td>
+			<td>
+				{{(ec.currentHp)}}/{{(ec.maxHp)}}
+				<br>
+				<progress id="health" [value]="ec.currentHp" [max]="ec.maxHp"></progress>
+			</td>
+			<td>
+				<!-- <div [value]="getCombatantOfChar(ec.id)">
+				</div> -->
+				<!-- <script>
+				getCombatantOfChar(ec.id)
+				</script> -->
+				<!-- <script>
+					let charInit = getCombatantOfChar(ec.id).initiative
+					{{charInit}}
+				</script>		 -->
+				<!-- {{[(getCombatantOfChar(ec.id).initiative)]}} -->
+				<!-- <label [value]="getCombatantOfChar(ec.id)"]></label> -->
+			</td>
+			<td>
+				<button 
+					(click)="testCombId(ec.id)" 
+					class="btn btn-primary" 
+					id="editBtn">Edit</button>
+			</td>
+			<td>
+				<button 
+					(click)="removeCombatant(ec.id)"
+					class="btn btn-primary" 
+					id="deleteBtn">Remove</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<form (ngSubmit) = "onSubmit()">
+	<label>Add Combatant</label>
+	<div class="form-group">
+		<label>Character Id</label>
+		<select [(ngModel)]="combatant.charId" class="form-control"
+			id="charId" name="charId">
+			<option *ngFor="let char of allCharacters" [value]="char.id">
+				{{char.name}}</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label>Side</label>
+		<input type="text" class="form-control" id="side" 
+			[(ngModel)]="combatant.side" name="side">
+	</div>
+	<div class="form-group">
+		<label>Initiative</label>
+		<input type="text" class="form-control" id="initiative" 
+			[(ngModel)]="combatant.initiative" name="initiative">
+	</div>
+	<button class="btn btn-success" type="submit">Submit</button>
+</form>
+<div>
+	<button (click)="startEncounter()" class=
+		"btn btn-primary" id="startEncounter">Start Encounter
+	</button>
+</div>
+<div *ngFor="let en of comEnemies">
+	{{en.id}}
+</div>

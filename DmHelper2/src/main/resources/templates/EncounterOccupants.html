@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Encounter Occupants</title>
+	</head>
+	<body>
+		<h1>Encounter Occupants</h1>
+		<nobr>
+			<a th:href="@{/}">Back to Main Landing Page</a>
+			<br></br>
+			<a th:href="@{/api/v1/npcForm}">Go to NPC Form Page</a>
+			<br></br>
+			<a th:href="@{/api/v1/pcForm}">Go to PC Form Page</a>
+		</nobr>
+		<br></br>
+		<h2>PCs</h2>
+		<div>
+			<table border="1">
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Level</th>
+					<th>Perception</th>
+					<th>Insight</th>
+					<th>AC</th>
+					<th>HP</th>
+					<th>Initiative</th>
+				</tr>
+				<tr th:each="pc : ${pcs}">
+					<td th:utext="${pc.id}">...</td>
+					<td th:utext="${pc.name}">...</td>
+					<td th:utext="${pc.level}">...</td>
+					<td th:utext="${pc.perceptionMod}">...</td>
+					<td th:utext="${pc.insightMod}">...</td>
+					<td th:utext="${pc.ac}">...</td>
+					<td th:utext="${pc.hp}">...</td>
+					<td th:utext="${pc.initiative}">...</td>
+				</tr>
+			</table> 
+		</div>
+		<br></br>
+		<h2>NPCs</h2>
+		<div>
+			<table border="1">
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>DC</th>
+					<th>Enemy?</th>
+					<th>Ally?</th>
+					<th>Perception</th>
+					<th>Insight</th>
+					<th>AC</th>
+					<th>Initiative</th>
+				</tr>
+				<tr th:each="npc : ${npcs}">
+					<td th:utext="${npc.id}">...</td>
+					<td th:utext="${npc.name}">...</td>
+					<td th:utext="${npc.dc}">...</td>
+					<td th:utext="${npc.enemy}">...</td>
+					<td th:utext="${npc.ally}">...</td>
+					<td th:utext="${npc.perceptionMod}">...</td>
+					<td th:utext="${npc.insightMod}">...</td>
+					<td th:utext="${npc.ac}">...</td>
+					<td th:utext="${npc.initiative}">...</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+
+</html>

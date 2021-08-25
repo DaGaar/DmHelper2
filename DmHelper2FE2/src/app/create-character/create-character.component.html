@@ -1,0 +1,27 @@
+<div class="col-md-6 offset-md-3">
+	<h3>Add Character</h3>
+	<form (ngSubmit) = "onSubmit()">
+		<!-- <div class="form-group">
+			<Label>Id</Label>
+			<input type="text" class="form-control" id="id"
+				[(ngModel)] = "character.id" name="id">
+		</div> -->
+		<div class="form-group">
+			<label>Name</label>
+			<input type="text" class="form-control" id="name"
+				[(ngModel)] = "character.name" name="name">
+		</div>
+		<div class="form-group">
+			<label>Max HP</label>
+			<input type="text" class="form-control" id="maxHp"
+				[(ngModel)] = "character.maxHp" name="maxHp">
+		</div>
+		<div class="form-group">
+			<label>Current HP</label>
+			<input type="text" class="form-control" id="currentHp"
+				[(ngModel)] = "character.currentHp" name="currentHp">
+		</div>
+
+		<button class="btn btn-success" type="submit">Submit</button>
+	</form>
+</div>

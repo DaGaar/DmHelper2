@@ -1,0 +1,238 @@
+<!-- <!DOCTYPE html>
+
+<html> -->
+<h2>Encounter: {{encounter?.name}}</h2>
+
+  <div>
+    <button (click) = "viewActionLog()" class=
+        "btn btn-primary" id="viewLog">Action Log
+    </button>
+  </div>
+<table class="row">
+  <table class="table table-striped column">
+    <thead>
+      <tr>
+        <th></th>
+        <th><h3>Allies</h3></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ec of charAllies">
+        <td>{{(ec.name)}}</td>
+        <td>
+                  
+          {{(ec.currentHp)}}/{{(ec.maxHp)}}
+          <br>
+            <!-- {{(ec.currentHp)}}/{{(ec.maxHp)}} -->
+            <progress id="health" [value]="ec.currentHp" [max]="ec.maxHp"></progress>
+            <!-- <br>
+            <progress id="health" [value]="ec.currentHp" [max]="ec.maxHp"></progress> -->
+        </td>
+        
+        <td>
+          <button 
+            
+            class="btn btn-primary" 
+            id="deleteBtn">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table class="table table-striped column">
+    <thead>
+      <tr>
+        <th></th>
+        <th><h3>Enemies</h3></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ec of encounterChars">
+        <td>{{(ec.name)}}</td>
+        <td>
+                  
+          {{(ec.currentHp)}}/{{(ec.maxHp)}}
+          <br>
+            <!-- {{(ec.currentHp)}}/{{(ec.maxHp)}} -->
+            <progress id="health" [value]="ec.currentHp" [max]="ec.maxHp"></progress>
+            <!-- <br>
+            <progress id="health" [value]="ec.currentHp" [max]="ec.maxHp"></progress> -->
+        </td>
+        
+        <td>
+          <button 
+    
+            class="btn btn-primary" 
+            id="deleteBtn">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</table>
+
+<form (ngSubmit)="onSubmit()">
+  <label>Action</label>
+  <div class="form-group">
+    <label>Action Type</label>
+    <select [(ngModel)]="action.type" class="from-control"
+      id="type" name="type">
+      <option *ngFor="let action of actionTypes" [value]="action.type">
+        {{action.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Attacker</label>
+    <select [(ngModel)]="action.attackerId" class="from-control"
+      id="attackerId" name="attackerId">
+      <option *ngFor="let char of encounterChars" [value]="char.id">
+        {{char.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Attacked</label>
+    <select [(ngModel)]="action.attackedId" class="from-control"
+      id="attackedId" name="attackedId">
+      <option *ngFor="let char of encounterChars" [value]="char.id">
+        {{char.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Damage</label>
+    <input [(ngModel)]="action.dmgDone" name="dmgDone" id="dmgDone" type="text" class="form control">
+  </div>
+    <div class="form-group">
+    <label>Effect</label>
+    <input [(ngModel)]="action.effect" name="effect" id="effect" type="text" class="form control">
+  </div>
+  <button class="btn btn-success" type="submit">Submit</button>
+</form>
+
+
+
+
+
+<!-- <body>
+<table class="row">
+  <div class="column">
+    <thead>Allies</thead>
+      <tr *ngFor = "let character of characters">
+        <button mat-button [matMenuTriggerFor]="actions" 
+          [value]="character.id">
+          {{character.name}}</button>
+        
+        <mat-menu #actions="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="attack" ngIf>Attack</button>
+          <button mat-menu-item [matMenuTriggerFor]="castSpell">Cast Spell</button>
+          <button mat-menu-item [matMenuTriggerFor]="other">Other</button>
+        </mat-menu>
+
+        <mat-menu #attack="matMenu">
+          <tr *ngFor = "let attacked of characters">
+            <button mat-menu-item >{{attacked.name}}</button>
+          </tr>
+        </mat-menu>
+
+
+
+        <mat-menu #castSpell="matMenu"> -->
+          <!-- <button mat-menu-item>Insects</button>
+          <button mat-menu-item>Molluscs</button>
+          <button mat-menu-item>Crustaceans</button>
+          <button mat-menu-item>Corals</button>
+          <button mat-menu-item>Arachnids</button>
+          <button mat-menu-item>Velvet worms</button>
+          <button mat-menu-item>Horseshoe crabs</button> -->
+        <!-- </mat-menu>
+
+        <mat-menu #other="matMenu">
+          <button mat-menu-item>Dash</button>
+          <button mat-menu-item>Disengage</button>
+          <button mat-menu-item>Dodge</button>
+          <button mat-menu-item>Help</button>
+          <button mat-menu-item>Hide</button>
+          <button mat-menu-item>Ready</button>
+          <button mat-menu-item>Ability Check</button>
+          <button mat-menu-item>Use Object</button>
+        </mat-menu>  
+     </tr>
+    </div>
+    <div class="column">
+	   <thead>Enemies</thead>
+
+		
+    </div>
+
+    
+  <div class="form-popup" id="myForm">
+  <form (ngSubmit)  = "onSubmit()" action="/action_page.php" class="form-container">
+    <h1>Action</h1> -->
+
+    <!-- <label><b>ID</b></label>
+	<input type="text" placeholder="Enter ID" class="form-control" id="id"
+		[(ngModel)] = "action.id" name="id" required> -->
+
+    <!-- <label><b>Attacker ID</b></label>
+    <input type="text" class="form-control" id="attackerId"
+				[(ngModel)] = "action.attackerId" name="attackerID" required>
+
+	<label><b>Attacked ID</b></label>
+    <input type="text" class="form-control" id="attackedId"
+				[(ngModel)] = "action.attackedId" name="attackedID" required>
+
+	<label><b>Damage</b></label>
+    <input type="text" class="form-control" id="dmgDone"
+        [(ngModel)] = "action.dmgDone" name="dmgDone" required>
+        
+  <label><b>Effect</b></label>
+    <input type="text" class="form-control" id="effect"
+        [(ngModel)] = "action.effect" name="effect">
+        
+  <label><b>Type</b></label>
+    <input type="text" class="form-control" id="type"
+        [(ngModel)] = "action.type" name="type" required>
+        
+  <label><b>Encounter ID</b></label>
+    <input type="text" class="form-control" id="encounterId"
+				[(ngModel)] = "action.encounterId" name="encounterId" required>
+
+    <button type="submit" class="btn btn-success">Do it</button>
+  </form>
+</div>
+</table> -->
+
+        <!-- <form class="attackDetails" (ngSubmit)="onSubmit()" action="/action_page.php">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Attacked ID</mat-label>
+            <input matInput placeholder="5" [(ngModel)] = "action.id" name="attackedID" required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Attacked ID</mat-label>
+            <input matInput placeholder="5" [(ngModel)] = "action.id" name="attackedID" required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Attacked ID</mat-label>
+            <input matInput placeholder="5" [(ngModel)] = "action.id" name="attackedID" required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Attacked ID</mat-label>
+            <input matInput placeholder="5" [(ngModel)] = "action.id" name="attackedID" required>
+          </mat-form-field>
+        </form> -->
+
+
+<!-- <script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+</body>
+</html> -->

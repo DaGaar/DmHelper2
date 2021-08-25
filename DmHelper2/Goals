@@ -1,0 +1,26 @@
+Main purpose: help DM paint their picture 
+	Provide timely prompts 
+		default prompts
+			prompt filter: session start, combat, social, skill challenge, travel, session end
+				
+					
+			
+		//	format of micro-story (Rick and Morty story wheel thing?)
+		//		default time allotment (suggestion) for each segment (assuming 4 hour session)
+		//		prompts specific to segment (of story wheel?)
+		prompt creator
+			store created prompts in database
+		prompts tailored to players
+			easy access to relevant player stats
+		alternative prompt templates for different genres
+		
+	Additional functionality
+		connect to music/sound app
+		connect to pic/video app
+		connect to D&D Beyond
+		connect to Roll20
+		connect to Beyond20
+		player prompter
+			prompt character traits/values during social events (connected to DM's app)
+			prompt relevant skills to situation (connected to DM app)
+	

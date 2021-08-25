@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Something Happened</title>
+</head>
+<body>
+	<nobr>
+			<a th:href="@{/}">Back to Main Landing Page</a>
+			<br></br>
+			<a th:href="@{/api/v1/npcForm}">Go to NPC Form Page</a>
+			<br></br>
+			<a th:href="@{/api/v1/encounterOccupants}">Go to Encounter Occupants Page</a>
+	</nobr>
+	<br></br>
+	<h1>What happened?</h1>
+	<br></br>
+	<form action="addPc">
+		<button type="button" onclick="alert('You pressed the button!')">Click me!</button>
+		
+		<label for="name">Name:</label><br>
+		<input type="text" id="name" name="name"><br>
+		
+		<label for="level">Level:</label><br>
+		<input type="text" id="level" name="level"><br>
+		
+		<label for="perceptionMod">Perception Modifier:</label><br>
+		<input type="text" id="perceptionMod" name="perceptionMod"><br>
+		
+		<label for="insightMod">Insight Modifier:</label><br>
+		<input type="text" id="insightMod" name="insightMod"><br>
+		
+		<label for="ac">AC:</label><br>
+		<input type="text" id="ac" name="ac"><br>
+		
+		<label for="hp">HP:</label><br>
+		<input type="text" id="hp" name="hp"><br>
+				
+		<label for="initiative">Initiative:</label><br>
+		<input type="text" id="initiative" name="initiative"><br>	
+			
+		<input type="submit"><br>
+	</form>
+</body>
+</html>

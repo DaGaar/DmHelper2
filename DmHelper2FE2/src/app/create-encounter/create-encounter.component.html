@@ -1,0 +1,118 @@
+
+<h2>Create Encounter</h2>
+
+<form (ngSubmit) = "onSubmit()">
+		<!-- <div class="form-group">
+			<Label>Id</Label>
+			<input type="text" class="form-control" id="id"
+				[(ngModel)] = "character.id" name="id">
+		</div> -->
+		<div class="form-group">
+			<label>Encounter Name</label>
+			<input type="text" class="form-control" id="name"
+				[(ngModel)] = "encounter.name" name="name">
+		</div>
+		<button class="btn btn-success" type="submit">Submit</button>
+	</form>
+
+<!-- <form  (ngSubmit)="onSubmit()">
+	<div ngModelGroup="allie" #allie="ngModelGroup">
+		<div class="form-group">
+			<label for="initiative">Initiative</label>
+			<input 
+				ngModel 
+				name="initiative" 
+				#initiative="ngModel" 
+				id="initiative" 
+				type="text"
+				class="form-control">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="side">Side</label>
+		<input 
+				ngModel 
+				name="side" 
+				#side="ngModel" 
+				id="side" 
+				type="text"
+				class="form-control">
+	</div>
+	<div class="form-group">
+		<label for="charId"></label>
+		<select ngModel name="charId" id="charId" class="form-control">
+			<option *ngFor="let character of allCharacters" [value]="character.id">
+				{{character.name}}
+			</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="encounterId"></label>
+		<select ngModel name="encounterId" id="encounterId" class="form-control">
+			<option *ngFor="let character of allCharacters" [value]="character.id">
+				{{character.name}}
+			</option>
+		</select>
+	</div>
+
+	<p>
+		{{ allie.value | json }}
+	</p>
+	<button class="btn btn-success" >Submit</button>
+</form> -->
+
+
+
+
+<!-- <div class="row">
+	<div class="column">
+		<form #allie="ngForm" (ngSubmit)="addCombatant(allie)">
+			<mat-card ngModelGroup="a">
+				<mat-card-title>Allies</mat-card-title>
+				<mat-card-content>
+					<mat-chip-list class="mat-chip-list-stacked" aria-label="Color selection">
+						<mat-chip *ngFor="let character of allies">
+							{{character.name}}
+						</mat-chip>
+					</mat-chip-list>
+					<mat-chip class="formGroup">Add
+						<mat-select ngModel name="allies" id="allies" class="form-control">
+							<mat-option 
+								*ngFor="let character of allCharacters" 
+								[value]="character.name">
+								{{character.name}}
+							</mat-option>
+						</mat-select>
+					</mat-chip>
+					<button class="btn btn-success" type="submit">Submit</button>
+				</mat-card-content>
+			</mat-card>
+		</form>
+	</div>
+
+	<div class="column">
+		<mat-card>
+			<mat-card-title>Enemies</mat-card-title>
+			<mat-card-content>
+
+			</mat-card-content>
+		</mat-card>
+	</div>
+</div> -->
+<!-- <div class="col-md-6 offset-md-3">
+	<h3>Add Encounter</h3>
+	<form (ngSubmit) = "onSubmit()" >
+
+		<div class="form-group">
+			<label>Name</label>
+			<input matInput [(ngModel)]="encounter.name" class="form-control" 
+			type="text" id="name" name="name">
+		</div>
+
+		<button class="btn btn-success" type="submit">Submit</button>
+		<div></div>
+	</form>
+</div> -->
+
+

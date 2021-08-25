@@ -1,0 +1,57 @@
+MOST BASIC (FOR ENCOUNTER PAINTER):
+	combat starts git
+		environment description	button
+		enemy description button		
+	combat during git		
+		miss description button
+		hit description button
+		kill description button
+	combat end git
+		loot description button
+		losses/damage description button
+		bodies description button
+			
+NEXT STEPS (FOR ENCOUNTER PAINTER):
+	Create other gits
+	Create git that prompts for a specific encounter type
+	
+LATER STEPS (FOR ENCOUNTER PAINTER):
+	Create form for user to fill out own encounter prompts
+	Create save option for user made encounter prompts
+	Create database to store saved encounter prompts
+	Personalize prompts to characters
+
+
+
+
+
+
+
+
+
+
+
+ MOST BASIC (FOR STORY CIRCLE):
+	Create git that lasts for specified amount of time and provides prompts at specified intervals;
+//		grab Rick and Morty style story wheel
+		make a few prompts for each story segment
+			1. You
+				Describe location/NPCs
+				Have players interact with location/NPCs
+				Hint at bad guy
+			2. Need
+				Show players something they want (help needy, loot)
+				How does this effect location/NPCs?
+				Have players show how effected
+			3. Go (act to fulfill need, make things worse or reveal how things are worse)
+				reveal the problem is different or changed from what players thought
+				show consequences if problem goes unchecked
+				
+			4. Search
+			5. Find
+			6. Take
+			7. Return
+			8. Change
+		re-learn git creation
+		learn how to make git last certain amount of time
+		
