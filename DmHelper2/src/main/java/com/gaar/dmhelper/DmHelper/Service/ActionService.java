@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.gaar.dmhelper.DmHelper.DAO.ActionDAO;
 import com.gaar.dmhelper.DmHelper.Model.Action;
 import com.gaar.dmhelper.DmHelper.Model.Encounter;
-import com.gaar.dmhelper.DmHelper.Victim;
 
 import Exception.ResourceNotFoundException;
 
@@ -53,12 +52,6 @@ public class ActionService {
 		List<Action> actionsMade = new LinkedList<Action>();
 		List<Action> actions = findAll();
 		for (int i = 0; i < actions.size(); i++) {
-//			List<Victim> victim = actions.get(i).getVictims();
-//			for (int j = 0; j < victim.size(); j++) {
-//				if (charId == victim.get(j).getAtkedId()) {
-//					actionsMade.add(actions.get(i));
-//				}
-//			}
 			if (charId == actions.get(i).getAttackedId()) {
 				actionsMade.add(actions.get(i));
 			}

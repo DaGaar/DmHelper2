@@ -21,10 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gaar.dmhelper.DmHelper.Stats;
 import com.gaar.dmhelper.DmHelper.Model.Action;
-import com.gaar.dmhelper.DmHelper.Model.Npc;
 import com.gaar.dmhelper.DmHelper.Model.Pc;
 
-import com.gaar.dmhelper.DmHelper.Service.NpcService;
 import com.gaar.dmhelper.DmHelper.Service.PcService;
 
 @RestController
@@ -35,15 +33,9 @@ public class PcController {
 	@Autowired
 	private PcService pcService;
 	
-//	@RequestMapping("pcForm")
-//	public String pcForm() {
-//		System.out.println("inside PcController pcForm()");
-//		return "pc.html";
-//	}
-	
 	@RequestMapping("/pcs")
-	public List<Pc> getPcs() {
-		System.out.println("inside PcController getPcs");
+	public List<Pc> getCharacters() {
+		System.out.println("inside CharacterController getCharacters");
 		return pcService.findAll();
 	}
 	
@@ -60,37 +52,31 @@ public class PcController {
 	
 	// PUT REQUEST IS USED TO MODIFY AN EXISTING RECORD
 	@PutMapping("/pcs/{id}")
-	public ResponseEntity<Pc> updatePc(@PathVariable Long id, @RequestBody Pc pcDetails) {
+	public ResponseEntity<Pc> updateCharacter(@PathVariable Long id, @RequestBody Pc charDetails) {
 		
 		// STEP ONE: RETRIEVE STUDENT RECORD FROM THE DB USING ID
 		Pc pc = pcService.findById(id);
 		
 		// STEP TWO: UPDATE RETRIEVED STUDENT WITH NEW STUDENT DETAILS
-		pc.setName(pcDetails.getName());
-		pc.setLevel(pcDetails.getLevel());
-		pc.setPerceptionMod(pcDetails.getPerceptionMod());
-		pc.setAc(pcDetails.getAc());
-		pc.setCurrentHp(pcDetails.getCurrentHp());
+		pc.setName(charDetails.getName());
+		pc.setCurrentHp(charDetails.getCurrentHp());
 		
 		//STEP THREE: SAVE THE MODIFIED STUDENT RECORD TO THE DB
-		Pc updatedPc = pcService.save(pc);
+		Pc updatedChar = pcService.save(pc);
 		
 		//RETURN A RESPONSE CONTAINING OK AND THE UPDATED STUDENT RECORD
-		return ResponseEntity.ok(updatedPc);
+		return ResponseEntity.ok(updatedChar);
 	}
 	
 	@GetMapping("/stats/{id}")
 	public ResponseEntity<Stats> getStatsById(@PathVariable Long id) {
 
-	//	List<Action> actionsOut = actionService.findByAttackerId(id);
-		
-		
 		Stats stats = pcService.genStats(id);
 		return ResponseEntity.ok(stats);
 	}
 	
 	@DeleteMapping("/pcs/{id}")
-	public ResponseEntity<Map<String, Boolean>> deletePc(@PathVariable Long id) {
+	public ResponseEntity<Map<String, Boolean>> deleteCharacter(@PathVariable Long id) {
 		
 		//STEP ONE: RETRIEVE STUDENT RECORD FROM THE DATABASE USING ID
 		Pc pc = pcService.findById(id);
@@ -106,14 +92,4 @@ public class PcController {
 		return ResponseEntity.ok(response);
 	}
 	
-	//TODO
-	//Test getDmgTaken method
-//	@PutMapping("/pcs/dmg{id}")
-//	public Pc currentHp(@PathVariable Long id, @RequestBody Pc pcDetails) {
-//		
-//		Pc pc = pcService.findById(id);
-//		
-//		return pcService.getDmgTaken(Pc pc);
-//	}
-
 }

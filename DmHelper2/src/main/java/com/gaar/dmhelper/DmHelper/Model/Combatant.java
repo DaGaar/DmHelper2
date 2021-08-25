@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 @Entity(name="combatant")
 public class Combatant {
 	
+	//LOCAL VARS
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
@@ -16,16 +17,9 @@ public class Combatant {
 	private Long charId;
 	private String side;
 	private Double initiative;
-	
-//	@ManyToOne
-//	private Encounter encounter;
-//	@ManyToOne 
-//	private Pc pc;
-	
-	
 	private Long encounterId;
 	
-//CONSTRUCTORS	
+	//CONSTRUCTORS	
 	public Combatant() {
 		super();
 	}
@@ -40,7 +34,6 @@ public class Combatant {
 	}
 
 	//GETTERS AND SETTERS
-
 	public String getSide() {
 		return side;
 	}

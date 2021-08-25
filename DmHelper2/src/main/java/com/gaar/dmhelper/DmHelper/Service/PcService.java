@@ -30,46 +30,32 @@ public class PcService {
 	@Autowired
 	private CombatantDAO combatantDAO;
 	
-//	@Autowired
-//	private Actions actions;
-	
 	public List<Pc> findAll() {
-		System.out.println("inside PcService findAllmethod");
+		System.out.println("inside CharacterService findAllmethod");
 		return pcDAO.findAll();
 	}
 	
 	public Pc save(Pc pc) {
-		System.out.println("inside PcService saveAndFLush");
+		System.out.println("inside CharacterService saveAndFLush");
 		return pcDAO.saveAndFlush(pc);
-	}
-	
-	public List<Pc> getParty(Long partyId) {
-		List<Pc> party = new LinkedList<Pc>();
-		List<Pc> allPcs = findAll();
-		for (int i = 0; i < allPcs.size(); i++) {
-			if (partyId == allPcs.get(i).getParty()) {
-				party.add(allPcs.get(i));			
-			}
-		}
-		return party;
 	}
 	
 	public Pc findById(Long id) {
 		return pcDAO.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Pc not "
-						+ "found with id: " + id));
+			.orElseThrow(() -> new ResourceNotFoundException("Pc not "
+					+ "found with id: " + id));
 	}
 	
 	public List<Pc> findByEncounterId(Long id) {
 		List<Combatant> allCombatants = combatantDAO.findAll();
-		List<Pc> encounterPcs = new LinkedList<Pc>();
+		List<Pc> encounterChars = new LinkedList<Pc>();
 		
 		for (int i = 0; i < allCombatants.size(); i++) {
 			if (allCombatants.get(i).getEncounterId() == id) {			
-				encounterPcs.add(findById(allCombatants.get(i).getCharId()));
+				encounterChars.add(findById(allCombatants.get(i).getCharId()));
 			}
 		}		
-		return encounterPcs;
+		return encounterChars;
 	}
 	
 	public Stats genStats(Long id) {
@@ -126,19 +112,5 @@ public class PcService {
 	public void delete(Pc pc) {
 		pcDAO.delete(pc);
 	}
-	//TODO
-//	public int getDmgTaken(Pc pc) {
-//		int dmgTaken = 0;
-//		List<Action> actions = pc.getActions();
-//		//long id = pc.getId();
-//		for (int i = 0; i < actions.size(); i++) {
-//		//	long attackedId = actions.get(i).getAttacked().getId();
-//			if (pc.getId() == actions.get(i).getAttacked().getId()) {
-//				dmgTaken += actions.get(i).getDmgDone();
-//			}
-//		}
-//		return dmgTaken;
-//	}
-
 
 }

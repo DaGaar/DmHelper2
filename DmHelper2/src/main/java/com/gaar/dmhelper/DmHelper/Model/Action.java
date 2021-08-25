@@ -1,16 +1,9 @@
 package com.gaar.dmhelper.DmHelper.Model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
-import com.gaar.dmhelper.DmHelper.Victim;
 
 @Entity
 public class Action {
@@ -26,50 +19,12 @@ public class Action {
 	private Long attackedId;
 	private Integer dmgDone;
 	private String effect;
-//	private Long[] attackedId;
-//	private Integer[] dmgDone;
-//	private String[] status;
-//	private Boolean[] changedStatus;
-	
-//	@OneToMany(mappedBy = "action")
-//	private List<Victim> victim;
 	private String type;
 	
 	//CONSTRUCTORS
 	public Action() {
 		super();
 	}
-	
-	
-
-//public Action(Long id, Long encounterCombat, Long attackerId, Long[] attackedId, Integer[] dmgDone, String[] status,
-//			Boolean[] changedStatus, String type) {
-//		super();
-//		this.id = id;
-//		this.encounterCombat = encounterCombat;
-//		this.attackerId = attackerId;
-//		this.attackedId = attackedId;
-//		this.dmgDone = dmgDone;
-//		this.status = status;
-//		this.changedStatus = changedStatus;
-//		this.type = type;
-//	}
-
-
-
-//	public Action(Long id, Long encounterCombat, Long attackerId, Long attackedId, Integer dmgDone, String[] status,
-//			Boolean[] changedStatus, String type) {
-//		super();
-//		this.id = id;
-//		this.encounterCombat = encounterCombat;
-//		this.attackerId = attackerId;
-//		this.attackedId = attackedId;
-//		this.dmgDone = dmgDone;
-//		this.status = status;
-//		this.changedStatus = changedStatus;
-//		this.type = type;
-//	}
-
 
 	public Action(Long id, Long encounterId, Long attackerId, 
 			Long attackedId, Integer dmgDone) {
@@ -91,17 +46,6 @@ public Action(Long id, Long encounterId, Long attackerId, Long attackedId, Integ
 	this.effect = effect;
 	this.type = type;
 }
-
-
-
-//	public Action(Long id, Long encounterCombat, Long attackerId, List<Victim> victim, String type) {
-//		super();
-//		this.id = id;
-//		this.encounterCombat = encounterCombat;
-//		this.attackerId = attackerId;
-//		this.victim = victim;
-//		this.type = type;
-//	}
 
 	//GETTERS AND SETTERS
 	public Long getId() {
@@ -136,22 +80,6 @@ public Action(Long id, Long encounterId, Long attackerId, Long attackedId, Integ
 		this.attackedId = attackedId;
 	}
 
-//	public String[] getStatus() {
-//		return status;
-//	}
-//
-//	public void setStatus(String[] status) {
-//		this.status = status;
-//	}
-//
-//	public Boolean[] getChangedStatus() {
-//		return changedStatus;
-//	}
-//
-//	public void setChangedStatus(Boolean[] changedStatus) {
-//		this.changedStatus = changedStatus;
-//	}
-
 	public String getType() {
 		return type;
 	}
@@ -159,31 +87,6 @@ public Action(Long id, Long encounterId, Long attackerId, Long attackedId, Integ
 	public void setType(String type) {
 		this.type = type;
 	}
-
-//	public List<Victim> getVictims() {
-//		return victim;
-//	}
-//
-//	public void setVictims(List<Victim> victim) {
-//		this.victim = victim;
-//	}
-
-	
-//	public Long[] getAttackedId() {
-//		return attackedId;
-//	}
-//
-//	public void setAttackedId(Long[] attackedId) {
-//		this.attackedId = attackedId;
-//	}
-//
-//	public Integer[] getDmgDone() {
-//		return dmgDone;
-//	}
-//
-//	public void setDmgDone(Integer[] dmgDone) {
-//		this.dmgDone = dmgDone;
-//	}
 	
 	public Integer getDmgDone() {
 		return dmgDone;
@@ -193,18 +96,12 @@ public Action(Long id, Long encounterId, Long attackerId, Long attackedId, Integ
 		this.dmgDone = dmgDone;
 	}
 
-
-
 	public String getEffect() {
 		return effect;
 	}
 
-
-
 	public void setEffect(String effect) {
 		this.effect = effect;
 	}
-	
-	
 	
 }
