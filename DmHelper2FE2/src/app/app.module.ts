@@ -22,6 +22,8 @@ import {MatInputModule} from '@angular/material/input';
 import { EditCharacterComponent } from './edit-character/edit-character.component';
 import { EncounterListComponent } from './encounter-list/encounter-list.component';
 import { EncounterDetailsComponent } from './encounter-details/encounter-details.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 
 
 
@@ -52,7 +54,8 @@ import { EncounterDetailsComponent } from './encounter-details/encounter-details
     MatCardModule,
     MatChipsModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

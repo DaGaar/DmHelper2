@@ -1,115 +1,90 @@
 <!-- <!DOCTYPE html>
 
 <html> -->
-<h2>Encounter: {{encounter?.name}}</h2>
+<h2 class="combat-title">Encounter: {{encounter?.name}}</h2>
 
-  <div>
-    <button (click) = "viewActionLog()" class=
-        "btn btn-primary" id="viewLog">Action Log
-    </button>
-  </div>
-<table class="row">
-  <table class="table table-striped column">
-    <thead>
-      <tr>
-        <th></th>
-        <th><h3>Allies</h3></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let ec of charAllies">
-        <td>{{(ec.name)}}</td>
-        <td>
-                  
-          {{(ec.currentHp)}}/{{(ec.maxHp)}}
-          <br>
-            <!-- {{(ec.currentHp)}}/{{(ec.maxHp)}} -->
-            <progress id="health" [value]="ec.currentHp" [max]="ec.maxHp"></progress>
-            <!-- <br>
-            <progress id="health" [value]="ec.currentHp" [max]="ec.maxHp"></progress> -->
-        </td>
-        
-        <td>
-          <button 
-            
-            class="btn btn-primary" 
-            id="deleteBtn">Remove</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <br>
-  <table class="table table-striped column">
-    <thead>
-      <tr>
-        <th></th>
-        <th><h3>Enemies</h3></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let ec of encounterChars">
-        <td>{{(ec.name)}}</td>
-        <td>
-                  
-          {{(ec.currentHp)}}/{{(ec.maxHp)}}
-          <br>
-            <!-- {{(ec.currentHp)}}/{{(ec.maxHp)}} -->
-            <progress id="health" [value]="ec.currentHp" [max]="ec.maxHp"></progress>
-            <!-- <br>
-            <progress id="health" [value]="ec.currentHp" [max]="ec.maxHp"></progress> -->
-        </td>
-        
-        <td>
-          <button 
-    
-            class="btn btn-primary" 
-            id="deleteBtn">Remove</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</table>
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened class="side-drawer"> <h4 class="menu"></h4>
 
-<form (ngSubmit)="onSubmit()">
-  <label>Action</label>
-  <div class="form-group">
-    <label>Action Type</label>
-    <select [(ngModel)]="action.type" class="from-control"
-      id="type" name="type">
-      <option *ngFor="let action of actionTypes" [value]="action.type">
-        {{action.name}}</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label>Attacker</label>
-    <select [(ngModel)]="action.attackerId" class="from-control"
-      id="attackerId" name="attackerId">
-      <option *ngFor="let char of encounterChars" [value]="char.id">
-        {{char.name}}</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label>Attacked</label>
-    <select [(ngModel)]="action.attackedId" class="from-control"
-      id="attackedId" name="attackedId">
-      <option *ngFor="let char of encounterChars" [value]="char.id">
-        {{char.name}}</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label>Damage</label>
-    <input [(ngModel)]="action.dmgDone" name="dmgDone" id="dmgDone" type="text" class="form control">
-  </div>
-    <div class="form-group">
-    <label>Effect</label>
-    <input [(ngModel)]="action.effect" name="effect" id="effect" type="text" class="form control">
-  </div>
-  <button class="btn btn-success" type="submit">Submit</button>
-</form>
+
+ 
+
+    <br>
+    <form (ngSubmit)="onSubmit()">
+      <div class="action-form-title">
+        <label><h6>Action Form:</h6></label>
+      </div>
+      <div class="form-group">
+        <label>Action Type:</label>
+        <select [(ngModel)]="action.type" class="from-control"
+          id="type" name="type">
+          <option *ngFor="let action of actionTypes" [value]="action.type">
+            {{action.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Attacker:</label>
+        <select [(ngModel)]="action.attackerId" class="from-control"
+          id="attackerId" name="attackerId">
+          <option *ngFor="let char of encounterChars" [value]="char.id">
+            {{char.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Attacked:</label>
+        <select [(ngModel)]="action.attackedId" class="from-control"
+          id="attackedId" name="attackedId">
+          <option *ngFor="let char of encounterChars" [value]="char.id">
+            {{char.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Damage:</label>
+        <input [(ngModel)]="action.dmgDone" name="dmgDone" id="dmgDone" type="text" class="form control">
+      </div>
+      <div class="form-group">
+        <label>Effect:</label>
+        <input [(ngModel)]="action.effect" name="effect" id="effect" type="text" class="form control">
+      </div>
+      <div class="act">
+        <button class="btn btn-success" type="submit" >Take Action</button>
+      </div>
+    </form>
+    <br>
+    <div class="viewLog">
+      <button (click) = "viewActionLog()" class=
+          "btn btn-primary" id="viewLog">View Action Log
+      </button>
+    </div>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><h6>Combatants</h6></th>
+          <th><h6>Health</h6></th>
+          <th><h6>Active Effects</h6></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ec of encounterChars">
+          <td>{{(ec.name)}}</td>
+          <td>
+            {{(ec.currentHp)}}/{{(ec.maxHp)}}
+            <br>
+              <!-- {{(ec.currentHp)}}/{{(ec.maxHp)}} -->
+              <progress id="health" [value]="ec.currentHp" [max]="ec.maxHp"></progress>
+              <!-- <br>
+              <progress id="health" [value]="ec.currentHp" [max]="ec.maxHp"></progress> -->
+          </td>         
+          <td>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-drawer-content>
+</mat-drawer-container>
 
 
 
